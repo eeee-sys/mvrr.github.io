@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="Video-Language Understanding, Large Language Models">
-  <meta name="description" content="VideoMind is a multi-modal chain-of-LoRA agent for long video reasoning.">
+  <meta name="description" content="MVRR is a Multi-Agent Framework for VideoQA">
 
-  <title>VideoMind: A Chain-of-LoRA Agent for Long Video Reasoning</title>
+  <title>MVRR: A Multi-Agent Framework for VideoQA with Reviser and Rewriter Synergy</title>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5C9M7TXSHJ"></script>
   <script>
@@ -33,10 +33,13 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
+          <!--
           <img class="logo" src="assets/logo.png" alt="logo">
+          -->
           <h1 class="title publication-title is-bold">
-            <span>VideoMind: A Chain-of-LoRA Agent for Long Video Reasoning</span>
+            <span>MVRR: A Multi-Agent Framework for VideoQA with Reviser and Rewriter Synergy</span>
           </h1>
+          <!--
           <div class="is-size-5 publication-author">
             <span class="author-block">
               <a href="https://yeliu.dev/" target="_blank">Ye Liu</a><sup>1&dagger;</sup>,
@@ -51,49 +54,62 @@
               <a href="https://sites.google.com/view/showlab" target="_blank">Mike Zheng Shou</a><sup>2&#9993;</sup>
             </span>
           </div>
+          -->
 
+          <!--
           <div class="is-size-5 publication-institution">
             <span class="author-block"><sup>1</sup>The Hong Kong Polytechnic University</span>
             <span class="author-block"><sup>2</sup>Show Lab, National University of Singapore</span>
           </div>
+          -->
 
+          <!--
           <div class="is-size-5 publication-role">
             <span class="author-block"><sup>&dagger;</sup><i>Equal Contribution</i></span>
             <span class="author-block"><sup>&#9993;</sup><i>Corresponding Authors</i></span>
           </div>
+          -->
 
           <div class="column has-text-centered">
             <div class="publication-links">
+              <!--
               <span class="link-block">
                 <a class="button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2503.13444" target="_blank">
                   <i class="button-icon far fa-paper-plane"></i>
                   <span>arXiv</span>
                 </a>
               </span>
+              -->
               <span class="link-block">
-                <a class="button is-normal is-rounded is-dark" href="https://github.com/yeliudev/VideoMind" target="_blank">
+                <a class="button is-normal is-rounded is-dark" href="https://github.com/eeee-sys/MVRR" target="_blank">
                   <i class="button-icon fa-brands fa-github"></i>
                   <span>Code</span>
                 </a>
               </span>
+              <!--
               <span class="link-block">
                 <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/spaces/yeliudev/VideoMind-2B" target="_blank">
                   <i class="button-icon fa-regular fa-lightbulb"></i>
                   <span>Demo</span>
                 </a>
               </span>
+              -->
+              <!--
               <span class="link-block">
                 <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/datasets/yeliudev/VideoMind-Dataset" target="_blank">
                   <i class="button-icon fa-regular fa-hourglass-half"></i>
                   <span>Dataset</span>
                 </a>
               </span>
+              -->
+              <!--
               <span class="link-block">
                 <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/collections/yeliudev/videomind-67dd41f42c57f0e7433afb36" target="_blank">
                   <i class="button-icon fa-regular fa-envelope-open"></i>
                   <span>Checkpoints</span>
                 </a>
               </span>
+              -->
             </div>
           </div>
         </div>
@@ -107,9 +123,9 @@
         <div class="column is-four-fifths">
           <h2 class="title">Abstract</h2>
           <div class="content has-text-justified">
-            <p>Videos, with their unique temporal dimension, demand precise grounded understanding, where answers are directly linked to visual, interpretable evidence. Despite significant breakthroughs in reasoning capabilities within Large Language Models, multi-modal reasoning - especially for videos - remains unexplored.</p>
-            <p>In this work, we introduce VideoMind, a novel video-language agent designed for temporal-grounded video understanding. VideoMind incorporates two key innovations: (i) We identify essential capabilities for video temporal reasoning and develop a role-based agentic workflow, including a planner for coordinating different roles, a grounder for temporal localization, a verifier to assess temporal interval accuracy, and an answerer for question-answering. (ii) To efficiently integrate these diverse roles, we propose a novel Chain-of-LoRA strategy, enabling seamless role-switching via lightweight LoRA adaptors while avoiding the overhead of multiple models, thus balancing efficiency and flexibility.</p>
-            <p>Extensive experiments on 14 public benchmarks, including 3 on grounded video question-answering (Grounded VideoQA), 6 on video temporal grounding (VTG), and 5 on general video question-answering (VideoQA), verify that our agent achieves state-of-the-art performance on diverse video understanding tasks, underscoring its effectiveness in advancing video agent and long-form temporal reasoning.</p>
+            <p>Video question answering (VideoQA) requires multimodal large language models (MLLMs) to correctly respond to user queries while jointly considering multimodal inputs and textual instructions.</p>
+            <p>However, the performance of VideoQA in practical applications often fails to meet expectations, with accuracy levels not being as high as anticipated. Several factors contribute to this issue: 1) The inherent complexity of multi-modal inputs, combined with the unique temporal dimension of video data, which introduces challenges in effectively processing and aligning both visual and textual information. 2) The increased computational burden imposed by long video inputs, which results in the model struggling to focus on the most relevant segments, leading to a dilution of attention and a decreased ability to generate accurate responses. 3) The lack of clarity and redundancy in user text queries, which adds unnecessary complexity to the model’s understanding process. This excessive cognitive load prevents the model from fully grasping the user’s intended meaning, leading to a higher likelihood of errors in answering.</p>
+            <p>In this work, we propose \textbf{MVRR}, an approach that unifies video grounding, question answering, answer revising, and question rewriting. The framework would give initial answer through grounding the most relevant video segments and answering the user query  based on the segments and the user's original query. Then, the framework would check whether the initial answer is right or wrong. If the initial answer is wrong, \textbf{MVRR} further refines the user query by removing redundant information, thereby simplifying the input. It then use the rewritten question to perform secondary answering. \textbf{MVRR} significantly improves VideoQA accuracy and demonstrates strong performance across multiple benchmarks, highlighting the effectiveness of our approach.</p>
           </div>
         </div>
       </div>
@@ -120,7 +136,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-half">
-          <h2 class="title">What is VideoMind?</h2>
+          <h2 class="title">What is MVRR?</h2>
           <img src="figures/teaser.jpg" alt="Teaser" data-zoom-image />
         </div>
       </div>
@@ -138,6 +154,7 @@
     </div>
   </section>
 
+  <!--
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
@@ -159,6 +176,7 @@
       </div>
     </div>
   </section>
+  -->
 
   <section class="section">
     <div class="container is-max-desktop">
@@ -171,6 +189,7 @@
     </div>
   </section>
 
+  <!--
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
@@ -184,6 +203,7 @@
       </div>
     </div>
   </section>
+  -->
 
   <footer class="footer">
     <div class="container">
