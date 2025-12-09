@@ -7,7 +7,7 @@
   <meta name="keywords" content="Video-Language Understanding, Large Language Models">
   <meta name="description" content="MVRR is a Multi-Agent Framework for VideoQA">
 
-  <title>MVRR: A Multi-Agent Framework for VideoQA with Reviser and Rewriter Synergy</title>
+  <title>Revise and Rewrite: A Self-Correcting Multi-Agent Framework for VideoQA</title>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5C9M7TXSHJ"></script>
   <script>
@@ -37,7 +37,7 @@
           <img class="logo" src="assets/logo.png" alt="logo">
           -->
           <h1 class="title publication-title is-bold">
-            <span>MVRR: A Multi-Agent Framework for VideoQA with Reviser and Rewriter Synergy</span>
+            <span>Revise and Rewrite: A Self-Correcting Multi-Agent Framework for VideoQA</span>
           </h1>
           <!--
           <div class="is-size-5 publication-author">
@@ -123,9 +123,27 @@
         <div class="column is-four-fifths">
           <h2 class="title">Abstract</h2>
           <div class="content has-text-justified">
-            <p>Video question answering (VideoQA) requires multimodal large language models (MLLMs) to correctly respond to user queries while jointly considering multimodal inputs and textual instructions.</p>
-            <p>However, the performance of VideoQA in practical applications often fails to meet expectations, with accuracy levels not being as high as anticipated. Several factors contribute to this issue: 1) The inherent complexity of multi-modal inputs, combined with the unique temporal dimension of video data, which introduces challenges in effectively processing and aligning both visual and textual information. 2) The increased computational burden imposed by long video inputs, which results in the model struggling to focus on the most relevant segments, leading to a dilution of attention and a decreased ability to generate accurate responses. 3) The lack of clarity and redundancy in user text queries, which adds unnecessary complexity to the model’s understanding process. This excessive cognitive load prevents the model from fully grasping the user’s intended meaning, leading to a higher likelihood of errors in answering.</p>
-            <p>In this work, we propose \textbf{MVRR}, an approach that unifies video grounding, question answering, answer revising, and question rewriting. The framework would give initial answer through grounding the most relevant video segments and answering the user query  based on the segments and the user's original query. Then, the framework would check whether the initial answer is right or wrong. If the initial answer is wrong, \textbf{MVRR} further refines the user query by removing redundant information, thereby simplifying the input. It then use the rewritten question to perform secondary answering. \textbf{MVRR} significantly improves VideoQA accuracy and demonstrates strong performance across multiple benchmarks, highlighting the effectiveness of our approach.</p>
+            <p>Video question answering (VideoQA) requires multimodal large language models (MLLMs) to correctly 
+              respond to user queries while jointly considering multimodal inputs and textual instructions.</p>
+            <p>However, the performance of VideoQA in practical applications often fails to meet expectations, 
+              with accuracy levels not being as high as anticipated. Several factors contribute to this issue: 1) 
+              The inherent complexity of multi-modal inputs, combined with the unique temporal dimension of video d
+              ata, which introduces challenges in effectively processing and aligning both visual 
+              and textual information. 2) The increased computational burden imposed by long video inputs, 
+              which results in the model struggling to focus on the most relevant segments, leading to a 
+              dilution of attention and a decreased ability to generate accurate responses. 3) The lack of 
+              clarity and redundancy in user text queries, which adds unnecessary complexity to the model’s 
+              understanding process. This excessive cognitive load prevents the model from fully grasping the 
+              user’s intended meaning, leading to a higher likelihood of errors in answering.</p>
+            <p>In this work, we propose MVRR, an approach that unifies video grounding, 
+              question answering, answer revising, and question rewriting. The framework would give initial 
+              answer through grounding the most relevant video segments and answering the user query  
+              based on the segments and the user's original query. Then, the framework would check whether 
+              the initial answer is right or wrong. If the initial answer is wrong, MVRR further refines the 
+              user query by removing redundant information, thereby simplifying the input. It then use the 
+              rewritten question to perform secondary answering. MVRR significantly improves VideoQA 
+              accuracy and demonstrates strong performance across multiple benchmarks, highlighting the 
+              effectiveness of our approach.</p>
           </div>
         </div>
       </div>
