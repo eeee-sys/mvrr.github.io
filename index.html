@@ -123,27 +123,22 @@
         <div class="column is-four-fifths">
           <h2 class="title">Abstract</h2>
           <div class="content has-text-justified">
-            <p>Video question answering (VideoQA) requires multimodal large language models (MLLMs) to correctly 
-              respond to user queries while jointly considering multimodal inputs and textual instructions.</p>
-            <p>However, the performance of VideoQA in practical applications often fails to meet expectations, 
-              with accuracy levels not being as high as anticipated. Several factors contribute to this issue: 1) 
-              The inherent complexity of multi-modal inputs, combined with the unique temporal dimension of video d
-              ata, which introduces challenges in effectively processing and aligning both visual 
-              and textual information. 2) The increased computational burden imposed by long video inputs, 
-              which results in the model struggling to focus on the most relevant segments, leading to a 
-              dilution of attention and a decreased ability to generate accurate responses. 3) The lack of 
-              clarity and redundancy in user text queries, which adds unnecessary complexity to the model’s 
-              understanding process. This excessive cognitive load prevents the model from fully grasping the 
-              user’s intended meaning, leading to a higher likelihood of errors in answering.</p>
-            <p>In this work, we propose MVRR, an approach that unifies video grounding, 
-              question answering, answer revising, and question rewriting. The framework would give initial 
-              answer through grounding the most relevant video segments and answering the user query  
-              based on the segments and the user's original query. Then, the framework would check whether 
-              the initial answer is right or wrong. If the initial answer is wrong, MVRR further refines the 
-              user query by removing redundant information, thereby simplifying the input. It then use the 
-              rewritten question to perform secondary answering. MVRR significantly improves VideoQA 
-              accuracy and demonstrates strong performance across multiple benchmarks, highlighting the 
-              effectiveness of our approach.</p>
+            <p>Video Question Answering (VideoQA) is a multimodal task that requires generating natural language responses based on visual 
+              content and user inquiries. With the rapid advancement of Multimodal Large Language Models (MLLMs), MLLM-based approaches have 
+              emerged as the dominant paradigm in VideoQA.</p>
+            <p>However, MLLMs inherit a critical intrinsic limitation from their LLM precursors: hallucination, the generation of content that is 
+              nonsensical or unfaithful to the source input. Consequently, ensuring result reliability is paramount for all LLM-based methodologies, and 
+              VideoQA is no exception.</p>
+            <p>To address this, we propose a novel framework MVRR designed to explicitly detect and mitigate hallucinations within MLLM-based 
+              VideoQA systems. MVRR comprises four core components, which are the base VideoQA/MLLM, the Reviser, the Grounder, and the Rewriter, 
+              integrated with two feedback loops. All modules share a unified MLLM backbone to maintain consistency. Within this architecture, the 
+              Reviser plays a central role in error detection and workflow orchestration. The Grounder and Rewriter are responsible for optimizing 
+              the video representation and the user query, respectively. By enhancing the quality of the prompt sequence, they indirectly improve the 
+              context provided to the model, thereby suppressing hallucinations to a certain extent. Given that the Grounder and Rewriter are themselves 
+              based on MLLMs, they possess a potential susceptibility to hallucination. To mitigate error propagation, we adopt a principle of progressive 
+              intervention, where auxiliary modules are invoked only when strictly necessary. Furthermore, the framework features an extensible open architecture. 
+              Beyond the Grounder and Rewriter, it can readily accommodate additional modules to inject supplementary auxiliary information into the prompt sequence. 
+              Our method has been proved to be efficient on several benchmarks.</p>
           </div>
         </div>
       </div>
