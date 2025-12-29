@@ -37,7 +37,7 @@
           <img class="logo" src="assets/logo.png" alt="logo">
           -->
           <h1 class="title publication-title is-bold">
-            <span>Revise and Rewrite: A Self-Correcting Multi-Agent Framework for VideoQA</span>
+            <span>Feedback-Driven Refinement: A Self-Correcting Multi-Agent Framework for Video Reasoning</span>
           </h1>
           <!--
           <div class="is-size-5 publication-author">
@@ -123,22 +123,22 @@
         <div class="column is-four-fifths">
           <h2 class="title">Abstract</h2>
           <div class="content has-text-justified">
-            <p>Video Question Answering (VideoQA) is a multimodal task that requires generating natural language responses based on visual 
-              content and user inquiries. With the rapid advancement of Multimodal Large Language Models (MLLMs), MLLM-based approaches have 
-              emerged as the dominant paradigm in VideoQA.</p>
-            <p>However, MLLMs inherit a critical intrinsic limitation from their LLM precursors: hallucination, the generation of content that is 
-              nonsensical or unfaithful to the source input. Consequently, ensuring result reliability is paramount for all LLM-based methodologies, and 
-              VideoQA is no exception.</p>
+            <p>Video Reasoning represents a complex multimodal task that necessitates synthesizing visual perception with cognitive 
+              processes to derive logical conclusions from user queries. With the rapid advancement of Multimodal Large Language Models (MLLMs),
+              MLLM-based approaches have emerged as the dominant paradigm in Video Reasoning.</p>
+            <p>However, MLLMs inherit a critical intrinsic limitation from their LLM precursors: hallucination, the generation of content that is nonsensical 
+              or unfaithful to the source input. Consequently, ensuring result reliability is paramount for all LLM-based methodologies, and Video Reasoning is 
+              no exception.</p>
             <p>To address this, we propose a novel framework MVRR designed to explicitly detect and mitigate hallucinations within MLLM-based 
-              VideoQA systems. MVRR comprises four core components, which are the base VideoQA/MLLM, the Reviser, the Grounder, and the Rewriter, 
-              integrated with two feedback loops. All modules share a unified MLLM backbone to maintain consistency. Within this architecture, the 
-              Reviser plays a central role in error detection and workflow orchestration. The Grounder and Rewriter are responsible for optimizing 
-              the video representation and the user query, respectively. By enhancing the quality of the prompt sequence, they indirectly improve the 
-              context provided to the model, thereby suppressing hallucinations to a certain extent. Given that the Grounder and Rewriter are themselves 
-              based on MLLMs, they possess a potential susceptibility to hallucination. To mitigate error propagation, we adopt a principle of progressive 
-              intervention, where auxiliary modules are invoked only when strictly necessary. Furthermore, the framework features an extensible open architecture. 
-              Beyond the Grounder and Rewriter, it can readily accommodate additional modules to inject supplementary auxiliary information into the prompt sequence. 
-              Our method has been proved to be efficient on several benchmarks.</p>
+              Video Reasoning systems. MVRR comprises four core components, which are the base Video Reasoning/MLLM, the Reviser, the Grounder, and 
+              the Rewriter, integrated with two feedback loops. All modules share a unified MLLM backbone to maintain consistency. Within this architecture, 
+              the Reviser plays a central role in error detection and workflow orchestration. The Grounder and Rewriter are responsible for optimizing the 
+              video representation and the user query, respectively. By enhancing the quality of the prompt sequence, they indirectly improve the context 
+              provided to the model, thereby suppressing hallucinations to a certain extent. Given that the Grounder and Rewriter are themselves based on MLLMs, 
+              they possess a potential susceptibility to hallucination. To mitigate error propagation, we adopt a principle of progressive intervention, where 
+              auxiliary modules are invoked only when strictly necessary. Furthermore, the framework features an extensible open architecture. Beyond the Grounder 
+              and Rewriter, it can readily accommodate additional modules to inject supplementary auxiliary information into the prompt sequence. Our method has 
+              been proved to be efficient on several benchmarks. </p>
           </div>
         </div>
       </div>
